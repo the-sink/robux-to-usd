@@ -15,6 +15,15 @@
                 vertical-align: middle;
                 display: inline-block;
             }
+            #robux-input {
+                font-family: inherit;
+                font-weight: bold;
+                height: 2em;
+                margin-top: 1em;
+                border: 0;
+                background: #eee;
+                padding-left: 1em;
+            }
         </style>
     </head>
     <body>
@@ -33,7 +42,7 @@
             const handler = function(element) {
                 let multiplier = (mode.checked) ? 0.0125 : 0.0035;
                 input.value = Math.floor(Math.abs(input.value));
-                result.innerHTML = formatter.format(input.value * multiplier);
+                result.innerHTML = "= " + formatter.format(input.value * multiplier);
             }
 
             input.addEventListener('input', handler);
