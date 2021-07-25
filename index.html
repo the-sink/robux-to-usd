@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+        <style>
+            .center {
+                display: table;
+                margin: 0 auto;
+                text-align: center;
+                font-family: 'Fira Mono', monospace;
+            }
+            .icon {
+                vertical-align: middle;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center">
+            <h1><b>Robux to USD</b></h1>
+            <input type="checkbox" id="use-purchase" name="use-purchase"> <label for="use-purchase"> Use purchase rate (instead of DevEx rate)</label> <br>
+            <img src="robux.svg" class="icon"> <input type="number" id="robux-input" name="robux" value="0">
+            <h3 id="result"></h3>
+        </div>
+        <script type="text/javascript">
+            const input = document.getElementById('robux-input');
+            const mode = document.getElementById('use-purchase');
+            const result = document.getElementById('result');
+            const formatter = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'})
+
+            const handler = function(element) {
+                let multiplier = (mode.checked) ? 0.0125 : 0.0035;
+                input.value = Math.floor(Math.abs(input.value));
+                result.innerHTML = formatter.format(input.value * multiplier);
+            }
+
+            input.addEventListener('input', handler);
+            mode.addEventListener('change', handler);
+            handler();
+        </script>
+    </body>
+</html>
