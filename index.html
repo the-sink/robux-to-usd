@@ -15,6 +15,12 @@
                 vertical-align: middle;
                 display: inline-block;
             }
+            .footer {
+                font-family: 'Fira Mono', monospace;
+                position: absolute;
+                bottom: 0;
+                text-align: center;
+            }
             #robux-input {
                 font-family: inherit;
                 font-weight: bold;
@@ -32,6 +38,7 @@
             <input type="checkbox" id="use-purchase" name="use-purchase"> <label for="use-purchase"> Use purchase rate (instead of DevEx rate)</label> <br>
             <img src="robux.svg" class="icon"> <input type="number" id="robux-input" name="robux" value="0">
             <h3 id="result"></h3>
+            <p class="footer">Made by <b>The_Sink#4096</b>, available <b><a href="https://github.com/the-sink/robux-to-usd" target="_blank">here</a></b>.</p>
         </div>
         <script type="text/javascript">
             const input = document.getElementById('robux-input');
